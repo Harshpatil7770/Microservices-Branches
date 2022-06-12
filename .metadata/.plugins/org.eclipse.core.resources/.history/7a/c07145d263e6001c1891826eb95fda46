@@ -1,0 +1,5 @@
+package com.xoriant.settlement.model;
+
+public class CurrencyConversion {
+
+}
