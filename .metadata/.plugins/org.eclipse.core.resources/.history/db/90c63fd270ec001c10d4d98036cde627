@@ -1,0 +1,15 @@
+package com.xoriant.ecart.controller;
+
+import org.springframework.jms.annotation.JmsListener;
+import org.springframework.stereotype.Component;
+
+@Component
+public class JMSListenerController {
+
+	@JmsListener(destination = "currency-conversionQ")
+	public void addNewConveryConversionDetails(String message) {
+		System.out.println("=============================");
+		System.out.println(message);
+		System.out.println("=============================");
+	}
+}

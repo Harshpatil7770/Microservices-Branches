@@ -1,0 +1,14 @@
+package com.xoriant.ecart.dto;
+
+import java.math.BigDecimal;
+
+public class CurrencyConversion {
+
+	private int id;
+
+	private String from;
+
+	private String to;
+
+	private BigDecimal conversionForm;
+}

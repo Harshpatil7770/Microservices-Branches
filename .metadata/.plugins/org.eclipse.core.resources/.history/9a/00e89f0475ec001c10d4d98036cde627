@@ -1,0 +1,42 @@
+package com.xoriant.ecart.service;
+
+import java.util.List;
+
+import org.jboss.logging.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Service;
+
+import com.xoriant.ecart.dao.CurrencyConversionDao;
+import com.xoriant.ecart.dto.CurrecnyConversionModel;
+import com.xoriant.ecart.model.CurrencyConversion;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Service
+public class CurrencyConversionServiceImpl implements CurrencyConversionService {
+
+	private static final Logger logger = Logger.getLogger(CurrencyConversionServiceImpl.class.getName());
+
+	@Autowired
+	private CurrencyConversionDao currencyConversionDao;
+
+	@Override
+	public String addNewCurrencyConversionDetails(CurrecnyConversionModel currecnyConversionModel) {
+		CurrencyConversion currencyConversion = new CurrencyConversion();
+		currencyConversion.setFrom(currecnyConversionModel.getFrom());
+		currencyConversion.setTo(currecnyConversionModel.getTo());
+		currencyConversion.setConversionForm(currecnyConversionModel.getConversionForm());
+		currencyConversionDao.save(currencyConversion);
+		logger.info("addNewCurrencyConversionDetails() method called");
+		return "New Currency Conversion Details Added Succesfully !!!" + " FORM :: " + currecnyConversionModel.getFrom()
+				+ " TO ::" + currecnyConversionModel.getTo();
+	}
+
+	@Override
+	public List<CurrencyConversion> fetchAll() {
+		logger.info("fetchAll() Called");
+		return currencyConversionDao.findAll();
+	}
+
+}

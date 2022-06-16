@@ -1,0 +1,89 @@
+package com.xoriant.ecart.model;
+
+import java.math.BigDecimal;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.core.env.Environment;
+
+@Entity
+@Table(name = "currency-conversion")
+public class CurrencyConversion {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+
+	private String from;
+
+	private String to;
+
+	private BigDecimal conversionForm;
+
+	private Environment environment;
+
+	public CurrencyConversion() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public CurrencyConversion(int id, String from, String to, BigDecimal conversionForm, Environment environment) {
+		super();
+		this.id = id;
+		this.from = from;
+		this.to = to;
+		this.conversionForm = conversionForm;
+		this.environment = environment;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getFrom() {
+		return from;
+	}
+
+	public void setFrom(String from) {
+		this.from = from;
+	}
+
+	public String getTo() {
+		return to;
+	}
+
+	public void setTo(String to) {
+		this.to = to;
+	}
+
+	public BigDecimal getConversionForm() {
+		return conversionForm;
+	}
+
+	public void setConversionForm(BigDecimal conversionForm) {
+		this.conversionForm = conversionForm;
+	}
+
+	public Environment getEnvironment() {
+		return environment;
+	}
+
+	public void setEnvironment(Environment environment) {
+		this.environment = environment;
+	}
+
+	@Override
+	public String toString() {
+		return "CurrencyConversion [id=" + id + ", from=" + from + ", to=" + to + ", conversionForm=" + conversionForm
+				+ ", environment=" + environment + "]";
+	}
+
+}

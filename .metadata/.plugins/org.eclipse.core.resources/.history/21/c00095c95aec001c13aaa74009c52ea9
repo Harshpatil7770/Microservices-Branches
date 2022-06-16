@@ -1,0 +1,16 @@
+package com.xoriant.ecart.model;
+
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
+
+public class CurrecnyConversionModel {
+
+	private int id;
+
+	private String from;
+
+	private String to;
+
+	private BigDecimal conversionForm;
+}

@@ -1,0 +1,22 @@
+package com.xoriant.ecart.service;
+
+import java.math.BigDecimal;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.xoriant.ecart.dao.CurrencyExchangeDao;
+import com.xoriant.ecart.model.CurrencyExchange;
+
+@Service
+public class CurrencyExchangeServiceImpl implements CurrencyExchangeService {
+
+	@Autowired
+	private CurrencyExchangeDao currencyExchangeDao;
+
+	@Override
+	public CurrencyExchange getCurrencyExchange(CurrencyExchange currencyExchange) {
+		return currencyExchangeDao.save(currencyExchange);
+	}
+
+}

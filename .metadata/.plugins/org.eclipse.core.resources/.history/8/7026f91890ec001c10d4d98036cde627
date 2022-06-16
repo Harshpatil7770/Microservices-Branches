@@ -1,0 +1,38 @@
+package com.xoriant.ecart.controller;
+
+import java.math.BigDecimal;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.xoriant.ecart.dto.CurrencyConversion;
+import com.xoriant.ecart.model.CurrencyExchange;
+import com.xoriant.ecart.service.CurrencyExchangeProxy;
+
+@RequestMapping("/api/currency-exchange")
+@RestController
+public class CurrencyExchangeController {
+
+	@Autowired
+	private CurrencyExchangeProxy currencyExchangeProxy;
+	
+	@Autowired
+	private CurrencyExchange currencyExchange;
+	
+	@Autowired
+	private CurrencyConversion currencyConversion;
+	
+	@GetMapping("/{id}/quantity/{quantity}")
+	public CurrencyExchange getCurrencyExchange(@PathVariable int id, @PathVariable BigDecimal quantity) {
+		
+		CurrencyExchange currencyExchange=new CurrencyExchange(id,currencyConversion.getConversionForm(),
+				currencyConversion.getTo(),currencyConversion.getConversionForm(), quantity,quantity.multiply(currencyConversion.getConversionForm()));
+		return currencyExchange;
+		
+
+		
+	}
+}

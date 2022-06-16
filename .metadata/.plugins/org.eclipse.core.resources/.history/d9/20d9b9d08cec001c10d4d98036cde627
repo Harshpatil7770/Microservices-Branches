@@ -1,0 +1,33 @@
+package com.xoriant.ecart.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.jms.core.MessageCreator;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.xoriant.ecart.dto.CurrencyConversion;
+
+@FeignClient(name="currency-exchange")
+public interface CurrencyExchangeProxy {
+
+	@PostMapping("api/currency-conversion/save")
+	public String addNewCurrencyConversionDetails(@RequestBody CurrecnyConversionModel currecnyConversionModel);
+
+	@GetMapping("api/currency-conversion/fetchAll")
+	public List<CurrencyConversion> fetchAll();
+	
+	@GetMapping("api/currency-conversion/find/{id}")
+	public Optional<CurrencyConversion> fetchById(@PathVariable int id);
+
+	@GetMapping("api/currency-conversion/find/currency-conversion/{from}/{to}")
+	public Optional<CurrencyConversion> fetchByFromAndTo(@PathVariable String from, @PathVariable String to);
+}

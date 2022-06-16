@@ -1,0 +1,6 @@
+package com.xoriant.ecart.service;
+
+public interface CurrencyExchangeService {
+
+	
+}

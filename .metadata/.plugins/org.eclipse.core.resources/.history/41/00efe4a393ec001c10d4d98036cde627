@@ -1,0 +1,10 @@
+package com.xoriant.ecart.service;
+
+import java.math.BigDecimal;
+
+import com.xoriant.ecart.model.CurrencyExchange;
+
+public interface CurrencyExchangeService {
+
+	CurrencyExchange getCurrencyExchange(CurrencyExchange currencyExchange);
+}

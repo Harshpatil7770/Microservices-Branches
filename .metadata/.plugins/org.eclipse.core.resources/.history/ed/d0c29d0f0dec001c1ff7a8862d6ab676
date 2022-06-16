@@ -1,0 +1,45 @@
+package com.xoriant.ecart.controller;
+
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.ObjectMessage;
+import javax.jms.Session;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
+import org.springframework.jms.core.MessagePostProcessor;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.xoriant.ecart.model.CurrencyConversion;
+import com.xoriant.ecart.service.CurrencyConversionService;
+
+import lombok.extern.slf4j.Slf4j;
+@RestController
+@RequestMapping("/api/currency-conversion")
+@Slf4j
+public class CurrencyConversionController {
+
+	@Autowired
+	private CurrencyConversionService currencyConversionService;
+	
+//	@Autowired
+//	private JmsTemplate jmsTemplate;
+	
+	@PostMapping("/save")
+	public String addNewCurrencyConversionDetails(@PathVariable CurrencyConversion currencyConversion) {
+		String result = currencyConversionService.addNewCurrencyConversionDetails(currencyConversion);
+		jmsTemplate.send("currency-conversionQ", new MessageCreator() {
+			
+			@Override
+			public Message createMessage(Session session) throws JMSException {
+				ObjectMessage object = session.createObjectMessage(result);
+				return object;
+			}
+		});
+		return result;
+	}
+}

@@ -1,0 +1,20 @@
+package com.xoriant.ecart.controller;
+
+import java.util.logging.Logger;
+
+import org.springframework.jms.annotation.JmsListener;
+import org.springframework.stereotype.Component;
+
+@Component
+//@Slf4j
+public class JMSListenerController {
+
+	private static final Logger logger = Logger.getLogger(JMSListenerController.class.getName());
+
+	@JmsListener(destination = "currency-conversionQ")
+	public void addNewConveryConversionDetails(String message) {
+		//log.info("JMS-Listener Called");
+		logger.info("JMS-Listener Called");
+		System.out.println(message);
+	}
+}
