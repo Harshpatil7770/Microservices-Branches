@@ -1,0 +1,6 @@
+projectKey=com.xoriant:Currency-ExchangeService
+serverUrl=http://localhost:9000
+serverVersion=9.4.0.54424
+dashboardUrl=http://localhost:9000/dashboard?id=com.xoriant%3ACurrency-ExchangeService
+ceTaskId=AYFntvMW2W_iBAlRQjDz
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYFntvMW2W_iBAlRQjDz

@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: com.xoriant.ecart.CurrencyExchangeServiceApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 9.545 s <<< FAILURE! - in com.xoriant.ecart.CurrencyExchangeServiceApplicationTests
+contextLoads  Time elapsed: 0.015 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'currencyExchangeController': Unsatisfied dependency expressed through field 'currencyConversion'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.xoriant.ecart.dto.CurrencyConversion' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.xoriant.ecart.dto.CurrencyConversion' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+

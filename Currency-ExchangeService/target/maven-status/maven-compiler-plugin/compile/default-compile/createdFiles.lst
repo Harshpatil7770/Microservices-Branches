@@ -1,0 +1,9 @@
+com\xoriant\ecart\dto\CurrecnyConversionModel.class
+com\xoriant\ecart\service\CurrencyExchangeServiceImpl.class
+com\xoriant\ecart\model\CurrencyExchange.class
+com\xoriant\ecart\service\CurrencyExchangeProxy.class
+com\xoriant\ecart\dao\CurrencyExchangeDao.class
+com\xoriant\ecart\dto\CurrencyConversion.class
+com\xoriant\ecart\controller\CurrencyExchangeController.class
+com\xoriant\ecart\CurrencyExchangeServiceApplication.class
+com\xoriant\ecart\service\CurrencyExchangeService.class
