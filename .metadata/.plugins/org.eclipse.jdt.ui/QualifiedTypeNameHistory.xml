@@ -48,4 +48,5 @@
     <fullyQualifiedTypeName name="org.springframework.jms.core.MessageCreator"/>
     <fullyQualifiedTypeName name="org.jboss.logging.Logger"/>
     <fullyQualifiedTypeName name="java.util.logging.Logger"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.client.discovery.EnableDiscoveryClient"/>
 </qualifiedTypeNameHistroy>
